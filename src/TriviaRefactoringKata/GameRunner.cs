@@ -14,10 +14,11 @@ namespace Trivia
 
         public static void Main(String[] args)
         {
-            Run();
+            var runner = new GameRunner();
+            runner.Run();
         }
 
-        static void Run()
+        void Run()
         {
             Game aGame = new Game();
 
