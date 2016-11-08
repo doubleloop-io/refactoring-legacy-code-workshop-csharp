@@ -42,15 +42,17 @@ namespace Trivia
             Assert.Equal("Rock", category);
         }
 
-        [Fact]
-        public void FirstQuestionForOneCategory()
+        [Theory]
+        [InlineData("Pop")]
+        [InlineData("Science")]
+        public void FirstQuestionForOneCategory(String category)
         {
             var deck = new QuestionDeck();
 
             deck.FillQuestions();
-            var question = deck.AskCategoryQuestion("Pop");
+            var question = deck.AskCategoryQuestion(category);
 
-            Assert.Equal("Pop Question 0", question);
+            Assert.Equal(category + " Question 0", question);
         }
     }
 }

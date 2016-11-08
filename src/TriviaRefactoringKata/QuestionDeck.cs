@@ -63,8 +63,10 @@ namespace Trivia
             }
             if (category == "Science")
             {
-                Console.WriteLine(scienceQuestions.First());
+                var question = scienceQuestions.First();
+                Console.WriteLine(question);
                 scienceQuestions.RemoveFirst();
+                return question;
             }
             if (category == "Sports")
             {
