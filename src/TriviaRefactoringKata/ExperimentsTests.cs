@@ -12,9 +12,14 @@ namespace Trivia
             using (var writer = File.CreateText("output1.txt"))
             {
                 Console.SetOut(writer);
-                var runner = new GameRunner();
+                var runner = new TestableGameRunner();
                 runner.Run();
             }
+        }
+
+        class TestableGameRunner : GameRunner
+        {
+            
         }
     }
 }
