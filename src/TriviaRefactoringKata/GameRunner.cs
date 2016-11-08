@@ -26,7 +26,7 @@ namespace Trivia
             aGame.add("Pat");
             aGame.add("Sue");
 
-            Random rand = new Random(7);
+            Random rand = CreateRandom();
 
             do
             {
@@ -41,6 +41,11 @@ namespace Trivia
                     notAWinner = aGame.wasCorrectlyAnswered();
                 }
             } while (notAWinner);
+        }
+
+        protected virtual Random CreateRandom()
+        {
+            return new Random(7);
         }
     }
 
