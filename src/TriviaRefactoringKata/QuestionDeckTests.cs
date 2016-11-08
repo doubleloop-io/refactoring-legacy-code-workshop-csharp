@@ -56,5 +56,16 @@ namespace Trivia
 
             Assert.Equal(category + " Question 0", question);
         }
+
+        [Fact]
+        public void QuestionForUnknownCategory()
+        {
+            var deck = new QuestionDeck();
+
+            deck.FillQuestions();
+            var question = deck.AskCategoryQuestion("unknown");
+
+            Assert.Null(question);
+        }
     }
 }
