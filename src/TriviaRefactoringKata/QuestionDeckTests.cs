@@ -45,6 +45,8 @@ namespace Trivia
         [Theory]
         [InlineData("Pop")]
         [InlineData("Science")]
+        [InlineData("Sports")]
+        [InlineData("Rock")]
         public void FirstQuestionForOneCategory(String category)
         {
             var deck = new QuestionDeck();
