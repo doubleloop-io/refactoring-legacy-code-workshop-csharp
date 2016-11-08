@@ -12,7 +12,8 @@ namespace Trivia
             using (var writer = File.CreateText("output1.txt"))
             {
                 Console.SetOut(writer);
-                GameRunner.Main(null);
+                var runner = new GameRunner();
+                runner.Run();
             }
         }
     }

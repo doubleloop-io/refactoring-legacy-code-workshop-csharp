@@ -18,7 +18,7 @@ namespace Trivia
             runner.Run();
         }
 
-        void Run()
+        public void Run()
         {
             Game aGame = new Game();
 
