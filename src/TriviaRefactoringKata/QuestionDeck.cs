@@ -52,7 +52,7 @@ namespace Trivia
             return "Rock";
         }
 
-        public void AskCategoryQuestion(String category)
+        public String AskCategoryQuestion(String category)
         {
             if (category == "Pop")
             {
@@ -74,6 +74,7 @@ namespace Trivia
                 Console.WriteLine(rockQuestions.First());
                 rockQuestions.RemoveFirst();
             }
+            return "";
         }
     }
 }
