@@ -14,6 +14,11 @@ namespace Trivia
 
         public static void Main(String[] args)
         {
+            Run();
+        }
+
+        static void Run()
+        {
             Game aGame = new Game();
 
             aGame.add("Chet");
@@ -24,7 +29,6 @@ namespace Trivia
 
             do
             {
-
                 aGame.roll(rand.Next(5) + 1);
 
                 if (rand.Next(9) == 7)
@@ -35,14 +39,8 @@ namespace Trivia
                 {
                     notAWinner = aGame.wasCorrectlyAnswered();
                 }
-
-
-
             } while (notAWinner);
-
         }
-
-
     }
 
 }
