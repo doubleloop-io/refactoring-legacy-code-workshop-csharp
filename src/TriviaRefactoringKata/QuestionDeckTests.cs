@@ -50,7 +50,7 @@ namespace Trivia
             deck.FillQuestions();
             var question = deck.AskCategoryQuestion("Pop");
 
-            Assert.Equal("", question);
+            Assert.Equal("Pop Question 0", question);
         }
     }
 }

@@ -56,8 +56,10 @@ namespace Trivia
         {
             if (category == "Pop")
             {
-                Console.WriteLine(popQuestions.First());
+                var question = popQuestions.First();
+                Console.WriteLine(question);
                 popQuestions.RemoveFirst();
+                return question;
             }
             if (category == "Science")
             {
