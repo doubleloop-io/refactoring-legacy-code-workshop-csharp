@@ -10,7 +10,7 @@ namespace Trivia
     public class GameRunner
     {
 
-        private static bool notAWinner;
+        private bool notAWinner;
 
         public static void Main(String[] args)
         {
