@@ -23,7 +23,7 @@ namespace Trivia
             Int32 seed;
             Random rand;
 
-            if (Int32.TryParse(args[0], out seed))
+            if (args != null && args.Length == 1 && Int32.TryParse(args[0], out seed))
                 rand = new Random(seed);
             else
                 rand = new Random(7);
