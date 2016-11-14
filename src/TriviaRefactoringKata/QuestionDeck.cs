@@ -18,6 +18,8 @@ namespace Trivia
         readonly LinkedList<String> rockQuestions;
         readonly Int32[] rockPlaces;
 
+        readonly CategoryQuestions pop;
+
         public QuestionDeck()
         {
             popQuestions = new LinkedList<string>();
@@ -31,6 +33,8 @@ namespace Trivia
 
             rockQuestions = new LinkedList<string>();
             rockPlaces = new[] { 3, 7, 11 };
+
+            pop = new CategoryQuestions("Pop", new[] { 0, 4, 8 });
         }
 
         static String CreateQuestion(String categoryName, Int32 index)
@@ -46,6 +50,8 @@ namespace Trivia
                 scienceQuestions.AddLast(CreateQuestion("Science", i));
                 sportsQuestions.AddLast(CreateQuestion("Sports", i));
                 rockQuestions.AddLast(CreateQuestion("Rock", i));
+
+                pop.AddQuestion(CreateQuestion(pop.Name, i));
             }
         }
 
@@ -56,6 +62,7 @@ namespace Trivia
             if (sportsPlaces.Contains(place)) return "Sports";
             if (rockPlaces.Contains(place)) return "Rock";
 
+            if (pop.Contains(place)) return pop.Name;
             throw new InvalidOperationException($"Place {place} is out of board.");
         }
 
@@ -69,6 +76,8 @@ namespace Trivia
             if (category == "Rock") questions = rockQuestions;
 
             if (questions != null) return NextQuestion(questions);
+
+            if (category == pop.Name) return pop.NextQuestion();
 
             throw new InvalidOperationException($"Missing category {category}");
         }
