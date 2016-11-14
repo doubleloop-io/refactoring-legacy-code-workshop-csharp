@@ -62,27 +62,24 @@ namespace Trivia
         public String AskCategoryQuestion(String category)
         {
             String question = null;
+            LinkedList<String> questions;
             if (category == "Pop")
             {
-                LinkedList<String> questions;
                 questions = popQuestions;
                 question = NextQuestion(questions);
             }
             if (category == "Science")
             {
-                LinkedList<String> questions;
                 questions = scienceQuestions;
                 question = NextQuestion(questions);
             }
             if (category == "Sports")
             {
-                LinkedList<String> questions;
                 questions = sportsQuestions;
                 question = NextQuestion(questions);
             }
             if (category == "Rock")
             {
-                LinkedList<String> questions;
                 questions = rockQuestions;
                 question = NextQuestion(questions);
             }
