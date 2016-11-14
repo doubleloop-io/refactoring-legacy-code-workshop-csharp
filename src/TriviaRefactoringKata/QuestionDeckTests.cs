@@ -37,9 +37,10 @@ namespace Trivia
         {
             var deck = new QuestionDeck();
 
-            var category = deck.CurrentCategoryPlace(place);
+            var ex = Record.Exception(() => deck.CurrentCategoryPlace(place));
 
-            Assert.Equal("Rock", category);
+            Assert.IsType<InvalidOperationException>(ex);
+            Assert.Contains("out of board", ex.Message);
         }
 
         [Theory]

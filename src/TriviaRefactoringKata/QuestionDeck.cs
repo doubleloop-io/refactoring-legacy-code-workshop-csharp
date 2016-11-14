@@ -49,7 +49,8 @@ namespace Trivia
             if (currentPlace == 3) return "Rock";
             if (currentPlace == 7) return "Rock";
             if (currentPlace == 11) return "Rock";
-            return "Rock";
+
+            throw new InvalidOperationException($"Place {currentPlace} is out of board.");
         }
 
         public String AskCategoryQuestion(String category)
