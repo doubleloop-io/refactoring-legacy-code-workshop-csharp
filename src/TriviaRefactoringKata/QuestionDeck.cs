@@ -64,19 +64,23 @@ namespace Trivia
             String question = null;
             if (category == "Pop")
             {
-                question = NextQuestion(popQuestions);
+                var questions = popQuestions;
+                question = NextQuestion(questions);
             }
             if (category == "Science")
             {
-                question = NextQuestion(scienceQuestions);
+                var questions = scienceQuestions;
+                question = NextQuestion(questions);
             }
             if (category == "Sports")
             {
-                question = NextQuestion(sportsQuestions);
+                var questions = sportsQuestions;
+                question = NextQuestion(questions);
             }
             if (category == "Rock")
             {
-                question = NextQuestion(rockQuestions);
+                var questions = rockQuestions;
+                question = NextQuestion(questions);
             }
             return question;
         }
