@@ -8,5 +8,3 @@ Switch Statement in askQuestion and currentCategory
 inline currentCategory, it's only a bottleneck
 inline askQuestion, it's only a bottleneck
 Add AskQuestionForPlace method into QuestionDeck that internally call CurrentCategoryPlace and AskCategoryQuestion
-Separate show question from it's selection by category (look at AskCategoryQuestion)
-Console.WriteLine in AskCategoryQuestion is a pain in the back

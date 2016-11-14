@@ -82,7 +82,6 @@ namespace Trivia
                 question = rockQuestions.First();
                 rockQuestions.RemoveFirst();
             }
-            Console.WriteLine(question);
             return question;
         }
     }

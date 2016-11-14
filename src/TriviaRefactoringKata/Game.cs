@@ -97,7 +97,8 @@ namespace UglyTrivia
 
         private void askQuestion()
         {
-            questionDeck.AskCategoryQuestion(currentCategory());
+            var question = questionDeck.AskCategoryQuestion(currentCategory());
+            Console.WriteLine(question);
         }
 
         private String currentCategory()
