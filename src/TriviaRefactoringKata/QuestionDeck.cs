@@ -64,22 +64,26 @@ namespace Trivia
             String question = null;
             if (category == "Pop")
             {
-                var questions = popQuestions;
+                LinkedList<String> questions;
+                questions = popQuestions;
                 question = NextQuestion(questions);
             }
             if (category == "Science")
             {
-                var questions = scienceQuestions;
+                LinkedList<String> questions;
+                questions = scienceQuestions;
                 question = NextQuestion(questions);
             }
             if (category == "Sports")
             {
-                var questions = sportsQuestions;
+                LinkedList<String> questions;
+                questions = sportsQuestions;
                 question = NextQuestion(questions);
             }
             if (category == "Rock")
             {
-                var questions = rockQuestions;
+                LinkedList<String> questions;
+                questions = rockQuestions;
                 question = NextQuestion(questions);
             }
             return question;
