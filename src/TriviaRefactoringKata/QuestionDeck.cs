@@ -63,24 +63,14 @@ namespace Trivia
         {
             String question = null;
             LinkedList<String> questions = null;
-            if (category == "Pop")
-            {
-                questions = popQuestions;
-            }
-            if (category == "Science")
-            {
-                questions = scienceQuestions;
-            }
-            if (category == "Sports")
-            {
-                questions = sportsQuestions;
-            }
-            if (category == "Rock")
-            {
-                questions = rockQuestions;
-            }
-            if (questions != null)
-                question = NextQuestion(questions);
+
+            if (category == "Pop") questions = popQuestions;
+            if (category == "Science") questions = scienceQuestions;
+            if (category == "Sports") questions = sportsQuestions;
+            if (category == "Rock") questions = rockQuestions;
+
+            if (questions != null) question = NextQuestion(questions);
+
             return question;
         }
 
