@@ -40,15 +40,14 @@ namespace Trivia
             var popPlaces = new[] { 0, 4, 8 };
             if (popPlaces.Contains(currentPlace)) return "Pop";
 
-            if (currentPlace == 1) return "Science";
-            if (currentPlace == 5) return "Science";
-            if (currentPlace == 9) return "Science";
-            if (currentPlace == 2) return "Sports";
-            if (currentPlace == 6) return "Sports";
-            if (currentPlace == 10) return "Sports";
-            if (currentPlace == 3) return "Rock";
-            if (currentPlace == 7) return "Rock";
-            if (currentPlace == 11) return "Rock";
+            var sciencePlaces = new[] { 1, 5, 9 };
+            if (sciencePlaces.Contains(currentPlace)) return "Science";
+
+            var sportsPlaces = new[] { 2, 6, 10 };
+            if (sportsPlaces.Contains(currentPlace)) return "Sports";
+
+            var rockPlaces = new[] { 3, 7, 11 };
+            if (rockPlaces.Contains(currentPlace)) return "Rock";
 
             throw new InvalidOperationException($"Place {currentPlace} is out of board.");
         }
