@@ -61,9 +61,9 @@ namespace Trivia
 
         public String AskCategoryQuestion(String category)
         {
+            String question;
             if (category == "Pop")
             {
-                String question;
                 question = popQuestions.First();
                 Console.WriteLine(question);
                 popQuestions.RemoveFirst();
@@ -71,7 +71,6 @@ namespace Trivia
             }
             if (category == "Science")
             {
-                String question;
                 question = scienceQuestions.First();
                 Console.WriteLine(question);
                 scienceQuestions.RemoveFirst();
@@ -79,7 +78,6 @@ namespace Trivia
             }
             if (category == "Sports")
             {
-                String question;
                 question = sportsQuestions.First();
                 Console.WriteLine(question);
                 sportsQuestions.RemoveFirst();
@@ -87,7 +85,6 @@ namespace Trivia
             }
             if (category == "Rock")
             {
-                String question;
                 question = rockQuestions.First();
                 Console.WriteLine(question);
                 rockQuestions.RemoveFirst();
