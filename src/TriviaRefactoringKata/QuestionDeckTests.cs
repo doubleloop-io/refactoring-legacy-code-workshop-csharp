@@ -23,7 +23,7 @@ namespace Trivia
         {
             var deck = new QuestionDeck();
 
-            var category = deck.CurrentCategoryPlace(place);
+            var category = deck.CategoryForPlace(place);
 
             Assert.Equal(expected, category);
         }
@@ -37,7 +37,7 @@ namespace Trivia
         {
             var deck = new QuestionDeck();
 
-            var ex = Record.Exception(() => deck.CurrentCategoryPlace(place));
+            var ex = Record.Exception(() => deck.CategoryForPlace(place));
 
             Assert.IsType<InvalidOperationException>(ex);
             Assert.Contains("out of board", ex.Message);

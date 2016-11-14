@@ -102,7 +102,7 @@ namespace UglyTrivia
 
         private String currentCategory()
         {
-            return questionDeck.CurrentCategoryPlace(places[currentPlayer]);
+            return questionDeck.CategoryForPlace(places[currentPlayer]);
         }
 
         public bool wasCorrectlyAnswered()

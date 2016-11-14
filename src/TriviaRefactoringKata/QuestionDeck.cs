@@ -35,21 +35,21 @@ namespace Trivia
             }
         }
 
-        public String CurrentCategoryPlace(Int32 currentPlace)
+        public String CategoryForPlace(Int32 place)
         {
             var popPlaces = new[] { 0, 4, 8 };
-            if (popPlaces.Contains(currentPlace)) return "Pop";
+            if (popPlaces.Contains(place)) return "Pop";
 
             var sciencePlaces = new[] { 1, 5, 9 };
-            if (sciencePlaces.Contains(currentPlace)) return "Science";
+            if (sciencePlaces.Contains(place)) return "Science";
 
             var sportsPlaces = new[] { 2, 6, 10 };
-            if (sportsPlaces.Contains(currentPlace)) return "Sports";
+            if (sportsPlaces.Contains(place)) return "Sports";
 
             var rockPlaces = new[] { 3, 7, 11 };
-            if (rockPlaces.Contains(currentPlace)) return "Rock";
+            if (rockPlaces.Contains(place)) return "Rock";
 
-            throw new InvalidOperationException($"Place {currentPlace} is out of board.");
+            throw new InvalidOperationException($"Place {place} is out of board.");
         }
 
         public String AskCategoryQuestion(String category)
