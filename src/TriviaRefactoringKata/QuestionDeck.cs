@@ -61,7 +61,6 @@ namespace Trivia
 
         public String AskCategoryQuestion(String category)
         {
-            String question = null;
             LinkedList<String> questions = null;
 
             if (category == "Pop") questions = popQuestions;
@@ -69,11 +68,7 @@ namespace Trivia
             if (category == "Sports") questions = sportsQuestions;
             if (category == "Rock") questions = rockQuestions;
 
-            if (questions != null)
-            {
-                question = NextQuestion(questions);
-                return question;
-            }
+            if (questions != null) return NextQuestion(questions);
 
             throw new InvalidOperationException($"Missing category {category}");
         }
