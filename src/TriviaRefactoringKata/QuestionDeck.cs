@@ -26,11 +26,11 @@ namespace Trivia
 
         public void FillQuestions()
         {
-            for (int i = 0; i < 50; i++)
+            for (var i = 0; i < 50; i++)
             {
-                popQuestions.AddLast("Pop Question " + i);
-                scienceQuestions.AddLast(("Science Question " + i));
-                sportsQuestions.AddLast(("Sports Question " + i));
+                popQuestions.AddLast(CreateQuestion("Pop", i));
+                scienceQuestions.AddLast(CreateQuestion("Science", i));
+                sportsQuestions.AddLast(CreateQuestion("Sports", i));
                 rockQuestions.AddLast(CreateQuestion("Rock", i));
             }
         }
