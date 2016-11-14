@@ -64,8 +64,7 @@ namespace Trivia
             String question = null;
             if (category == "Pop")
             {
-                question = popQuestions.First();
-                popQuestions.RemoveFirst();
+                question = NextQuestion(popQuestions);
             }
             if (category == "Science")
             {
@@ -83,6 +82,13 @@ namespace Trivia
                 rockQuestions.RemoveFirst();
             }
             return question;
+        }
+
+        static String NextQuestion(LinkedList<String> questions)
+        {
+            var result = questions.First();
+            questions.RemoveFirst();
+            return result;
         }
     }
 }
