@@ -68,18 +68,15 @@ namespace Trivia
             }
             if (category == "Science")
             {
-                question = scienceQuestions.First();
-                scienceQuestions.RemoveFirst();
+                question = NextQuestion(scienceQuestions);
             }
             if (category == "Sports")
             {
-                question = sportsQuestions.First();
-                sportsQuestions.RemoveFirst();
+                question = NextQuestion(sportsQuestions);
             }
             if (category == "Rock")
             {
-                question = rockQuestions.First();
-                rockQuestions.RemoveFirst();
+                question = NextQuestion(rockQuestions);
             }
             return question;
         }
