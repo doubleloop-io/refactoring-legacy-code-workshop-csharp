@@ -63,28 +63,32 @@ namespace Trivia
         {
             if (category == "Pop")
             {
-                var question = popQuestions.First();
+                String question;
+                question = popQuestions.First();
                 Console.WriteLine(question);
                 popQuestions.RemoveFirst();
                 return question;
             }
             if (category == "Science")
             {
-                var question = scienceQuestions.First();
+                String question;
+                question = scienceQuestions.First();
                 Console.WriteLine(question);
                 scienceQuestions.RemoveFirst();
                 return question;
             }
             if (category == "Sports")
             {
-                var question = sportsQuestions.First();
+                String question;
+                question = sportsQuestions.First();
                 Console.WriteLine(question);
                 sportsQuestions.RemoveFirst();
                 return question;
             }
             if (category == "Rock")
             {
-                var question = rockQuestions.First();
+                String question;
+                question = rockQuestions.First();
                 Console.WriteLine(question);
                 rockQuestions.RemoveFirst();
                 return question;
