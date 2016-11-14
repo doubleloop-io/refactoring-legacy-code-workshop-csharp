@@ -19,7 +19,7 @@ namespace Trivia
             rockQuestions = new LinkedList<string>();
         }
 
-        public String createRockQuestion(int index)
+        static String CreateRockQuestion(int index)
         {
             return "Rock Question " + index;
         }
@@ -31,7 +31,7 @@ namespace Trivia
                 popQuestions.AddLast("Pop Question " + i);
                 scienceQuestions.AddLast(("Science Question " + i));
                 sportsQuestions.AddLast(("Sports Question " + i));
-                rockQuestions.AddLast(this.createRockQuestion(i));
+                rockQuestions.AddLast(CreateRockQuestion(i));
             }
         }
 
