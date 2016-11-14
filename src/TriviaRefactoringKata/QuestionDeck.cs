@@ -37,9 +37,8 @@ namespace Trivia
 
         public String CurrentCategoryPlace(Int32 currentPlace)
         {
-            if (currentPlace == 0
-                || currentPlace == 4
-                || currentPlace == 8) return "Pop";
+            var popPlaces = new[] { 0, 4, 8 };
+            if (popPlaces.Contains(currentPlace)) return "Pop";
 
             if (currentPlace == 1) return "Science";
             if (currentPlace == 5) return "Science";
