@@ -7,23 +7,29 @@ namespace Trivia
     public class QuestionDeck
     {
         readonly LinkedList<String> popQuestions;
-        readonly LinkedList<String> scienceQuestions;
-        readonly LinkedList<String> sportsQuestions;
-        readonly LinkedList<String> rockQuestions;
         readonly Int32[] popPlaces;
+
+        readonly LinkedList<String> scienceQuestions;
         readonly Int32[] sciencePlaces;
+
+        readonly LinkedList<String> sportsQuestions;
         readonly Int32[] sportsPlaces;
+
+        readonly LinkedList<String> rockQuestions;
         readonly Int32[] rockPlaces;
 
         public QuestionDeck()
         {
             popQuestions = new LinkedList<string>();
-            scienceQuestions = new LinkedList<string>();
-            sportsQuestions = new LinkedList<string>();
-            rockQuestions = new LinkedList<string>();
             popPlaces = new[] { 0, 4, 8 };
+
+            scienceQuestions = new LinkedList<string>();
             sciencePlaces = new[] { 1, 5, 9 };
+
+            sportsQuestions = new LinkedList<string>();
             sportsPlaces = new[] { 2, 6, 10 };
+
+            rockQuestions = new LinkedList<string>();
             rockPlaces = new[] { 3, 7, 11 };
         }
 
