@@ -37,9 +37,10 @@ namespace Trivia
 
         public String CurrentCategoryPlace(Int32 currentPlace)
         {
-            if (currentPlace == 0) return "Pop";
-            if (currentPlace == 4) return "Pop";
-            if (currentPlace == 8) return "Pop";
+            if (currentPlace == 0
+                || currentPlace == 4
+                || currentPlace == 8) return "Pop";
+
             if (currentPlace == 1) return "Science";
             if (currentPlace == 5) return "Science";
             if (currentPlace == 9) return "Science";
