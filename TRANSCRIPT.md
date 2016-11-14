@@ -327,13 +327,6 @@ Point to "createRockQuestion" not inline because we can reuse it.
 Let Extract Parameter category name and then Rename into "CreateQuestion".
 This is the power of waiting the last responsible moment to take decisions.
 
-## Clean AskQuestionCategory
-Point to "AskQuestionCategory".
-Extract Variable from return.
-Move variable outer scope to remove duplications.
-Move "Console.WriteLine" outer scope to remove duplications.
-Move "Console.WriteLine" into "Game".
-
 ## Clean CategoryPlace
 Point to "CategoryPlace".
 Use "||" (or) to collapse conditionals.
@@ -342,6 +335,13 @@ Extract Field and move array initialization into Ctor.
 Wow!! More Data Clumps and in a different form.
 Another example of the power of waiting the last responsible moment to take decisions.
 Port remaining "ScienceQuestions", "SportsQuestions" and "RockQuestions".
+
+## Clean AskQuestionCategory
+Point to "AskQuestionCategory".
+Extract Variable from return.
+Move variable outer scope to remove duplications.
+Move "Console.WriteLine" outer scope to remove duplications.
+Move "Console.WriteLine" into "Game".
 
 ## CategoryQuestions Born
 Now if we look closer to QuestionDeck we can see that Data Clump is still there.
