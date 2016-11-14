@@ -69,9 +69,13 @@ namespace Trivia
             if (category == "Sports") questions = sportsQuestions;
             if (category == "Rock") questions = rockQuestions;
 
-            if (questions != null) question = NextQuestion(questions);
+            if (questions != null)
+            {
+                question = NextQuestion(questions);
+                return question;
+            }
 
-            return question;
+            throw new InvalidOperationException($"Missing category {category}");
         }
 
         static String NextQuestion(LinkedList<String> questions)

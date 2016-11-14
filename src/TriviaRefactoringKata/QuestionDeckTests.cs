@@ -64,9 +64,10 @@ namespace Trivia
             var deck = new QuestionDeck();
 
             deck.FillQuestions();
-            var question = deck.AskCategoryQuestion("unknown");
+            var ex = Record.Exception(() => deck.AskCategoryQuestion("unknown"));
 
-            Assert.Null(question);
+            Assert.IsType<InvalidOperationException>(ex);
+            Assert.Contains("missing category unknown", ex.Message, StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Fact]
