@@ -61,36 +61,32 @@ namespace Trivia
 
         public String AskCategoryQuestion(String category)
         {
-            String question;
+            String question = null;
             if (category == "Pop")
             {
                 question = popQuestions.First();
                 Console.WriteLine(question);
                 popQuestions.RemoveFirst();
-                return question;
             }
             if (category == "Science")
             {
                 question = scienceQuestions.First();
                 Console.WriteLine(question);
                 scienceQuestions.RemoveFirst();
-                return question;
             }
             if (category == "Sports")
             {
                 question = sportsQuestions.First();
                 Console.WriteLine(question);
                 sportsQuestions.RemoveFirst();
-                return question;
             }
             if (category == "Rock")
             {
                 question = rockQuestions.First();
                 Console.WriteLine(question);
                 rockQuestions.RemoveFirst();
-                return question;
             }
-            return null;
+            return question;
         }
     }
 }
