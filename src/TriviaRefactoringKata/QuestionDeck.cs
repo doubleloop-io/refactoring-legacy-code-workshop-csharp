@@ -10,6 +10,10 @@ namespace Trivia
         readonly LinkedList<String> scienceQuestions;
         readonly LinkedList<String> sportsQuestions;
         readonly LinkedList<String> rockQuestions;
+        readonly Int32[] popPlaces;
+        readonly Int32[] sciencePlaces;
+        readonly Int32[] sportsPlaces;
+        readonly Int32[] rockPlaces;
 
         public QuestionDeck()
         {
@@ -17,6 +21,10 @@ namespace Trivia
             scienceQuestions = new LinkedList<string>();
             sportsQuestions = new LinkedList<string>();
             rockQuestions = new LinkedList<string>();
+            popPlaces = new[] { 0, 4, 8 };
+            sciencePlaces = new[] { 1, 5, 9 };
+            sportsPlaces = new[] { 2, 6, 10 };
+            rockPlaces = new[] { 3, 7, 11 };
         }
 
         static String CreateQuestion(String categoryName, Int32 index)
@@ -37,16 +45,9 @@ namespace Trivia
 
         public String CategoryForPlace(Int32 place)
         {
-            var popPlaces = new[] { 0, 4, 8 };
             if (popPlaces.Contains(place)) return "Pop";
-
-            var sciencePlaces = new[] { 1, 5, 9 };
             if (sciencePlaces.Contains(place)) return "Science";
-
-            var sportsPlaces = new[] { 2, 6, 10 };
             if (sportsPlaces.Contains(place)) return "Sports";
-
-            var rockPlaces = new[] { 3, 7, 11 };
             if (rockPlaces.Contains(place)) return "Rock";
 
             throw new InvalidOperationException($"Place {place} is out of board.");
