@@ -1,6 +1,5 @@
 ﻿using System;
 using Xunit;
-using Xunit.Extensions;
 
 namespace Trivia
 {
@@ -50,19 +49,6 @@ namespace Trivia
 
             Assert.IsType<InvalidOperationException>(ex);
             Assert.Contains("missing category unknown", ex.Message, StringComparison.InvariantCultureIgnoreCase);
-        }
-
-        [Fact]
-        public void AskMultipleQuestionsForMixedCategories_()
-        {
-            var deck = new QuestionDeck();
-
-            deck.FillQuestions();
-            Assert.Equal("Pop Question 0", deck.AskCategoryQuestion("Pop"));
-            Assert.Equal("Sports Question 0", deck.AskCategoryQuestion("Sports"));
-            Assert.Equal("Pop Question 1", deck.AskCategoryQuestion("Pop"));
-            Assert.Equal("Rock Question 0", deck.AskCategoryQuestion("Rock"));
-            Assert.Equal("Sports Question 1", deck.AskCategoryQuestion("Sports"));
         }
 
         [Fact]
