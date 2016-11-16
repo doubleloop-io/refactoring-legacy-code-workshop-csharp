@@ -47,6 +47,10 @@ namespace Trivia
             }
         }
 
+        public void PlaceOn(String categoryName, Int32[] places)
+        {
+        }
+
         public String CategoryForPlace(Int32 place)
         {
             var found = categories.SingleOrDefault(x => x.IsPlacedOn(place));

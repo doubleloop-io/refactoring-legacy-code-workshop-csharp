@@ -19,13 +19,24 @@ namespace Trivia
         [InlineData(3, "Rock")]
         [InlineData(7, "Rock")]
         [InlineData(11, "Rock")]
-        public void CategoryForBoardPlace(Int32 place, String expected)
+        public void CategoryForBoardPlace_(Int32 place, String expected)
         {
             var deck = new QuestionDeck();
 
             var category = deck.CategoryForPlace(place);
 
             Assert.Equal(expected, category);
+        }
+
+        [Fact(Skip = "too early")]
+        public void CategoryForPlace()
+        {
+            var deck = new QuestionDeck();
+
+            deck.PlaceOn("my name", new[] {1, 2, 3, 4, 5, 6});
+            var category = deck.CategoryForPlace(3);
+
+            Assert.Equal("my name", category);
         }
 
         [Theory]
