@@ -20,25 +20,17 @@ namespace Trivia
 
         public void FillQuestions()
         {
-            var pop = new CategoryQuestions("Pop");
-            categories.Add(pop);
+            var pop = AddCategoryQuestions("Pop");
             pop.PlacedOn(new[] { 0, 4, 8 });
 
-            var science = new CategoryQuestions("Science");
+            var science = AddCategoryQuestions("Science");
             science.PlacedOn(new[] { 1, 5, 9 });
 
-            var sports = new CategoryQuestions("Sports");
+            var sports = AddCategoryQuestions("Sports");
             sports.PlacedOn(new[] { 2, 6, 10 });
 
-            var rock = new CategoryQuestions("Rock");
+            var rock = AddCategoryQuestions("Rock");
             rock.PlacedOn(new[] { 3, 7, 11 });
-
-            categories.AddRange(new[]
-            {
-                science,
-                sports,
-                rock
-            });
 
             for (var i = 0; i < 50; i++)
             {
