@@ -32,18 +32,9 @@ namespace Trivia
         public void FillQuestions()
         {
             PlaceSimpleQuestions("Pop", new[] { 0, 4, 8 });
-
-            var science = FindOrAddCategoryQuestions("Science");
-            science.PlacedOn(new[] { 1, 5, 9 });
-            for (var i = 0; i < 50; i++) science.AddQuestion(CreateSimpleQuestion(science.Name, i));
-
-            var sports = FindOrAddCategoryQuestions("Sports");
-            sports.PlacedOn(new[] { 2, 6, 10 });
-            for (var i = 0; i < 50; i++) sports.AddQuestion(CreateSimpleQuestion(sports.Name, i));
-
-            var rock = FindOrAddCategoryQuestions("Rock");
-            rock.PlacedOn(new[] { 3, 7, 11 });
-            for (var i = 0; i < 50; i++) rock.AddQuestion(CreateSimpleQuestion(rock.Name, i));
+            PlaceSimpleQuestions("Science", new[] { 1, 5, 9 });
+            PlaceSimpleQuestions("Sports", new[] { 2, 6, 10 });
+            PlaceSimpleQuestions("Rock", new[] { 3, 7, 11 });
         }
 
         public void PlaceOn(String categoryName, Int32[] places)
