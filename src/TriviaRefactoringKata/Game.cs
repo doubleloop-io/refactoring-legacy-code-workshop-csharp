@@ -10,7 +10,7 @@ namespace UglyTrivia
     {
 
 
-        List<string> players = new List<string>();
+        List<String> players = new List<String>();
 
         int[] places = new int[6];
         int[] purses = new int[6];
@@ -45,7 +45,12 @@ namespace UglyTrivia
         void FillWithSimpleQuestions(String categoryName)
         {
             for (var i = 0; i < 50; i++)
-                questionDeck.AddQuestion(categoryName, QuestionDeck.CreateSimpleQuestion(categoryName, i));
+                questionDeck.AddQuestion(categoryName, CreateSimpleQuestion(categoryName, i));
+        }
+
+        static String CreateSimpleQuestion(String categoryName, Int32 index)
+        {
+            return categoryName + " Question " + index;
         }
 
         public bool isPlayable()
