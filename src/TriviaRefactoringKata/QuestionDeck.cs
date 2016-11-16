@@ -6,9 +6,6 @@ namespace Trivia
 {
     public class QuestionDeck
     {
-        readonly LinkedList<String> popQuestions;
-        readonly Int32[] popPlaces;
-
         readonly LinkedList<String> scienceQuestions;
         readonly Int32[] sciencePlaces;
 
@@ -22,9 +19,6 @@ namespace Trivia
 
         public QuestionDeck()
         {
-            popQuestions = new LinkedList<string>();
-            popPlaces = new[] { 0, 4, 8 };
-
             scienceQuestions = new LinkedList<string>();
             sciencePlaces = new[] { 1, 5, 9 };
 
@@ -46,7 +40,6 @@ namespace Trivia
         {
             for (var i = 0; i < 50; i++)
             {
-                popQuestions.AddLast(CreateQuestion("Pop", i));
                 scienceQuestions.AddLast(CreateQuestion("Science", i));
                 sportsQuestions.AddLast(CreateQuestion("Sports", i));
                 rockQuestions.AddLast(CreateQuestion("Rock", i));
@@ -57,7 +50,6 @@ namespace Trivia
 
         public String CategoryForPlace(Int32 place)
         {
-            if (popPlaces.Contains(place)) return "Pop";
             if (sciencePlaces.Contains(place)) return "Science";
             if (sportsPlaces.Contains(place)) return "Sports";
             if (rockPlaces.Contains(place)) return "Rock";
@@ -70,14 +62,13 @@ namespace Trivia
         {
             LinkedList<String> questions = null;
 
-            if (category == "Pop") questions = popQuestions;
             if (category == "Science") questions = scienceQuestions;
             if (category == "Sports") questions = sportsQuestions;
             if (category == "Rock") questions = rockQuestions;
 
-            if (questions != null) return NextQuestion(questions);
-
             if (category == pop.Name) return pop.NextQuestion();
+
+            if (questions != null) return NextQuestion(questions);
 
             throw new InvalidOperationException($"Missing category {category}");
         }
