@@ -23,18 +23,10 @@ namespace Trivia
             for (var i = 0; i < 50; i++) AddQuestion(categoryName, CreateSimpleQuestion(categoryName, i));
         }
 
-        void PlaceSimpleQuestions(String categoryName, Int32[] places)
+        public void PlaceSimpleQuestions(String categoryName, Int32[] places)
         {
             PlaceOn(categoryName, places);
             AddSimpleQuestions(categoryName);
-        }
-
-        public void FillQuestions()
-        {
-            PlaceSimpleQuestions("Pop", new[] { 0, 4, 8 });
-            PlaceSimpleQuestions("Science", new[] { 1, 5, 9 });
-            PlaceSimpleQuestions("Sports", new[] { 2, 6, 10 });
-            PlaceSimpleQuestions("Rock", new[] { 3, 7, 11 });
         }
 
         public void PlaceOn(String categoryName, Int32[] places)
