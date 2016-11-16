@@ -18,10 +18,15 @@ namespace Trivia
             return categoryName + " Question " + index;
         }
 
+        void AddSimpleQuestions(String categoryName)
+        {
+            for (var i = 0; i < 50; i++) AddQuestion(categoryName, CreateSimpleQuestion(categoryName, i));
+        }
+
         public  void FillQuestions()
         {
             PlaceOn("Pop", new[] { 0, 4, 8 });
-            for (var i = 0; i < 50; i++) AddQuestion("Pop", CreateSimpleQuestion("Pop", i));
+            AddSimpleQuestions("Pop");
 
             var science = FindOrAddCategoryQuestions("Science");
             science.PlacedOn(new[] { 1, 5, 9 });
