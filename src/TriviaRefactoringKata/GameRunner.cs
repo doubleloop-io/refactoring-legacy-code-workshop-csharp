@@ -21,6 +21,8 @@ namespace Trivia
         {
             Game aGame = new Game();
 
+            aGame.FillGameWithSimpleQuestionForEachCategories();
+
             aGame.add("Chet");
             aGame.add("Pat");
             aGame.add("Sue");

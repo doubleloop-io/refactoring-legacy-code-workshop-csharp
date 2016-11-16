@@ -24,11 +24,9 @@ namespace UglyTrivia
         public Game()
         {
             questionDeck = new QuestionDeck();
-
-            FillGameWithSimpleQuestionForEachCategories();
         }
 
-        void FillGameWithSimpleQuestionForEachCategories()
+        public void FillGameWithSimpleQuestionForEachCategories()
         {
             FillCategoryWithSimpleQuestionAndPlace("Pop", new[] { 0, 4, 8 });
             FillCategoryWithSimpleQuestionAndPlace("Science", new[] { 1, 5, 9 });
