@@ -29,21 +29,6 @@ namespace Trivia
             Assert.Contains("no category on place 10", ex.Message, StringComparison.InvariantCultureIgnoreCase);
         }
 
-        [Theory]
-        [InlineData("Pop")]
-        [InlineData("Science")]
-        [InlineData("Sports")]
-        [InlineData("Rock")]
-        public void FirstQuestionForOneCategory_(String category)
-        {
-            var deck = new QuestionDeck();
-
-            deck.FillQuestions();
-            var question = deck.AskCategoryQuestion(category);
-
-            Assert.Equal(category + " Question 0", question);
-        }
-
         [Fact]
         public void FirstQuestionForOneCategory()
         {
