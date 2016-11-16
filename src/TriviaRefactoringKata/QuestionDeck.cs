@@ -10,6 +10,16 @@ namespace Trivia
 
         public QuestionDeck()
         {
+            categories = new List<CategoryQuestions>();
+        }
+
+        static String CreateQuestion(String categoryName, Int32 index)
+        {
+            return categoryName + " Question " + index;
+        }
+
+        public void FillQuestions()
+        {
             var pop = new CategoryQuestions("Pop");
             pop.PlacedOn(new[] { 0, 4, 8 });
 
@@ -22,22 +32,14 @@ namespace Trivia
             var rock = new CategoryQuestions("Rock");
             rock.PlacedOn(new[] { 3, 7, 11 });
 
-            categories = new List<CategoryQuestions>
+            categories.AddRange(new[]
             {
                 pop,
                 science,
                 sports,
                 rock
-            };
-        }
+            });
 
-        static String CreateQuestion(String categoryName, Int32 index)
-        {
-            return categoryName + " Question " + index;
-        }
-
-        public void FillQuestions()
-        {
             for (var i = 0; i < 50; i++)
             {
                 foreach (var category in categories)
