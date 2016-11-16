@@ -22,21 +22,19 @@ namespace Trivia
         {
             var pop = AddCategoryQuestions("Pop");
             pop.PlacedOn(new[] { 0, 4, 8 });
+            for (var i = 0; i < 50; i++) pop.AddQuestion(CreateQuestion(pop.Name, i));
 
             var science = AddCategoryQuestions("Science");
             science.PlacedOn(new[] { 1, 5, 9 });
+            for (var i = 0; i < 50; i++) science.AddQuestion(CreateQuestion(science.Name, i));
 
             var sports = AddCategoryQuestions("Sports");
             sports.PlacedOn(new[] { 2, 6, 10 });
+            for (var i = 0; i < 50; i++) sports.AddQuestion(CreateQuestion(sports.Name, i));
 
             var rock = AddCategoryQuestions("Rock");
             rock.PlacedOn(new[] { 3, 7, 11 });
-
-            foreach (var category in categories)
-            {
-                for (var i = 0; i < 50; i++)
-                    category.AddQuestion(CreateQuestion(category.Name, i));
-            }
+            for (var i = 0; i < 50; i++) rock.AddQuestion(CreateQuestion(rock.Name, i));
         }
 
         public void PlaceOn(String categoryName, Int32[] places)
