@@ -11,7 +11,7 @@ namespace Trivia
         {
             var deck = new QuestionDeck();
 
-            deck.PlaceOn("my name", new[] {1, 2, 3, 4, 5, 6});
+            deck.PlaceOn("my name", new[] { 1, 2, 3, 4, 5, 6 });
             var category = deck.CategoryForPlace(3);
 
             Assert.Equal("my name", category);
@@ -22,12 +22,24 @@ namespace Trivia
         [InlineData(1234)]
         [InlineData(Int32.MaxValue)]
         [InlineData(-1)]
-        public void CategoryForOutOfBoardPlace(Int32 place)
+        public void CategoryForOutOfBoardPlace_(Int32 place)
         {
             var deck = new QuestionDeck();
 
             deck.FillQuestions();
             var ex = Record.Exception(() => deck.CategoryForPlace(place));
+
+            Assert.IsType<InvalidOperationException>(ex);
+            Assert.Contains("out of board", ex.Message);
+        }
+
+        [Fact]
+        public void CategoryForOutOfBoardPlace()
+        {
+            var deck = new QuestionDeck();
+
+            deck.PlaceOn("anything", new[] { 6 });
+            var ex = Record.Exception(() => deck.CategoryForPlace(10));
 
             Assert.IsType<InvalidOperationException>(ex);
             Assert.Contains("out of board", ex.Message);
