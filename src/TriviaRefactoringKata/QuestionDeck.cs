@@ -13,7 +13,7 @@ namespace Trivia
             categories = new List<CategoryQuestions>();
         }
 
-        static String CreateQuestion(String categoryName, Int32 index)
+        static String CreateSimpleQuestion(String categoryName, Int32 index)
         {
             return categoryName + " Question " + index;
         }
@@ -21,19 +21,19 @@ namespace Trivia
         public  void FillQuestions()
         {
             PlaceOn("Pop", new[] { 0, 4, 8 });
-            for (var i = 0; i < 50; i++) AddQuestion("Pop", CreateQuestion("Pop", i));
+            for (var i = 0; i < 50; i++) AddQuestion("Pop", CreateSimpleQuestion("Pop", i));
 
             var science = FindOrAddCategoryQuestions("Science");
             science.PlacedOn(new[] { 1, 5, 9 });
-            for (var i = 0; i < 50; i++) science.AddQuestion(CreateQuestion(science.Name, i));
+            for (var i = 0; i < 50; i++) science.AddQuestion(CreateSimpleQuestion(science.Name, i));
 
             var sports = FindOrAddCategoryQuestions("Sports");
             sports.PlacedOn(new[] { 2, 6, 10 });
-            for (var i = 0; i < 50; i++) sports.AddQuestion(CreateQuestion(sports.Name, i));
+            for (var i = 0; i < 50; i++) sports.AddQuestion(CreateSimpleQuestion(sports.Name, i));
 
             var rock = FindOrAddCategoryQuestions("Rock");
             rock.PlacedOn(new[] { 3, 7, 11 });
-            for (var i = 0; i < 50; i++) rock.AddQuestion(CreateQuestion(rock.Name, i));
+            for (var i = 0; i < 50; i++) rock.AddQuestion(CreateSimpleQuestion(rock.Name, i));
         }
 
         public void PlaceOn(String categoryName, Int32[] places)
