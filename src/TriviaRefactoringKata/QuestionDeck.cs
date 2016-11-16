@@ -18,15 +18,9 @@ namespace Trivia
             return categoryName + " Question " + index;
         }
 
-        void AddSimpleQuestions(String categoryName)
+        public void AddSimpleQuestions(String categoryName)
         {
             for (var i = 0; i < 50; i++) AddQuestion(categoryName, CreateSimpleQuestion(categoryName, i));
-        }
-
-        public void PlaceSimpleQuestions(String categoryName, Int32[] places)
-        {
-            PlaceOn(categoryName, places);
-            AddSimpleQuestions(categoryName);
         }
 
         public void PlaceOn(String categoryName, Int32[] places)

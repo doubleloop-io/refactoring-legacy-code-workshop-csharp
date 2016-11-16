@@ -38,7 +38,8 @@ namespace UglyTrivia
 
         void FillCategoryWithSimpleQuestionAndPlace(String categoryName, Int32[] categoryPlaces)
         {
-            questionDeck.PlaceSimpleQuestions(categoryName, categoryPlaces);
+            questionDeck.PlaceOn(categoryName, categoryPlaces);
+            questionDeck.AddSimpleQuestions(categoryName);
         }
 
         public bool isPlayable()
