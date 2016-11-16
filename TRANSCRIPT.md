@@ -350,13 +350,31 @@ The problem here is that the logic is duplicated only to handle different data.
 How we proceed? We make a new Object that concentrate only the logic and ask for data.
 This time we use another technique called Parallel Design.
 Add class "CategoryQuestions" and use Pop Category to shape the external API.
-Add "PlaceOn", "AddQuestion", "IsOnPlace" and "NextQuestion" methods.
+Add "ctor", "Name", "AddQuestion", "Contains" and "NextQuestion" methods.
 Don't leave the NotImplementedException, the code must run.
-Replace one by one the other categories.
-Encapsulate Field to expose "CategoryName" category.
+Replace only "Pop" category.
 What we have done is follow one of the Pragmatic Programmers tip:
 	Put Abstraction in Code and Details in Data.
+We need to write test for this class? Let's see.
+For code coverage point of view, no.
+For design feedback point of view, yes.
+So implement them.
+
+## Write CategoryQuestions tests
+Add class CategoryQuestionsTests with test list.
+Add "CheckPositionWithCorrectPlace" test.
+Add "CheckPositionWithWrongPlace" test.
+Rename "Contains" in "IsPlacedOn"
+Add "ManyNextQuestions" test.
+Add "NextQuestionWhenTerminated" test. Chose an Exception.
+See that empty array in ctor? Provide optional data via method not ctor, because it's rigid.
+Replace "places" ctor parameter with "PlaceOn" methods.
+Use simpler collection like List<> instead of Array.
+
+## Finish QuestionDeck
+Replace one by one the other categories.
 Aggregate all questions into a collection.
+Remove "ifs" chains with SingleOrDefault lookup.
 
 ## Retry Add New Requirement
 Now handle History Category is one line change.
@@ -378,14 +396,6 @@ In this case we see that:
   - the scenario under test aren't clear.
   - totally miss the boundary condition.
 Before fix them, in order to show the differencies of style let's write tests for "CategoryQuestins".
-
-## Write CategoryQuestions tests
-Add class CategoryQuestionsTests
-Add "CheckPositionWithCorrectPlace" test.
-Add "CheckPositionWithWrongPlace" test.
-Add "ManyNextQuestions" test.
-Add "NextQuestionWhenTerminated" test. Chose an Exception.
-Use simple collection like List<>.
 
 ## Write QuestionDeck Tests
 Write better test, in parallel, in order to shape a better API.
@@ -436,6 +446,3 @@ TODO: talk about quick & dirty and deep practice
 
 ## The End
 Thanks a lot to had attended to this course!!!
-
-
-

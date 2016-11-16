@@ -38,10 +38,11 @@
 ## Clean FillQuestions
 ## Clean AskQuestionCategory
 ## Clean CategoryPlace
+## Write CategoryQuestions tests
 ## CategoryQuestions Born
+## Finish QuestionDeck
 ## Retry Add New Requirement
 ## Get Feedback from QuestionDeck tests
-## Write CategoryQuestions tests
 ## Write QuestionDeck Tests
 ## Now Add New Requirement
 ## Approve New Golden Master
