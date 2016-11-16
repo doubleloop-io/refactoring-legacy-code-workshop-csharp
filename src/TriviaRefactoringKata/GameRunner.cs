@@ -24,8 +24,8 @@ namespace Trivia
             aGame.PlaceCategory("Pop", new[] { 0, 4, 8 });
             FillWithSimpleQuestions(aGame, "Pop");
 
-            aGame.PlaceCategory("Science", new[] { 1, 5, 9 });
-            FillWithSimpleQuestions(aGame, "Science");
+            aGame.PlaceCategory("History", new[] { 1, 5, 9 });
+            FillWithSimpleQuestions(aGame, "History");
 
             aGame.PlaceCategory("Sports", new[] { 2, 6, 10 });
             FillWithSimpleQuestions(aGame, "Sports");
