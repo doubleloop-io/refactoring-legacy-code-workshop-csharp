@@ -54,7 +54,7 @@ namespace Trivia
             if (sportsPlaces.Contains(place)) return "Sports";
             if (rockPlaces.Contains(place)) return "Rock";
 
-            if (pop.Contains(place)) return pop.Name;
+            if (pop.IsPlacedOn(place)) return pop.Name;
             throw new InvalidOperationException($"Place {place} is out of board.");
         }
 

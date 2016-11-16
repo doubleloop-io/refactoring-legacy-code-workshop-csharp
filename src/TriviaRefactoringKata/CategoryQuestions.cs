@@ -22,7 +22,7 @@ namespace Trivia
             questions.AddLast(question);
         }
 
-        public Boolean Contains(Int32 place)
+        public Boolean IsPlacedOn(Int32 place)
         {
             return places.Contains(place);
         }
