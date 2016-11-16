@@ -6,30 +6,24 @@ namespace Trivia
 {
     public class QuestionDeck
     {
-        readonly LinkedList<String> scienceQuestions;
-        readonly Int32[] sciencePlaces;
-
-        readonly LinkedList<String> sportsQuestions;
-        readonly Int32[] sportsPlaces;
-
-        readonly LinkedList<String> rockQuestions;
-        readonly Int32[] rockPlaces;
-
         readonly CategoryQuestions pop;
+        readonly CategoryQuestions science;
+        readonly CategoryQuestions sports;
+        readonly CategoryQuestions rock;
 
         public QuestionDeck()
         {
-            scienceQuestions = new LinkedList<string>();
-            sciencePlaces = new[] { 1, 5, 9 };
-
-            sportsQuestions = new LinkedList<string>();
-            sportsPlaces = new[] { 2, 6, 10 };
-
-            rockQuestions = new LinkedList<string>();
-            rockPlaces = new[] { 3, 7, 11 };
-
             pop = new CategoryQuestions("Pop");
             pop.PlacedOn(new[] { 0, 4, 8 });
+
+            science = new CategoryQuestions("Science");
+            science.PlacedOn(new[] { 1, 5, 9 });
+
+            sports = new CategoryQuestions("Sports");
+            sports.PlacedOn(new[] { 2, 6, 10 });
+
+            rock = new CategoryQuestions("Rock");
+            rock.PlacedOn(new[] { 3, 7, 11 });
         }
 
         static String CreateQuestion(String categoryName, Int32 index)
@@ -41,44 +35,30 @@ namespace Trivia
         {
             for (var i = 0; i < 50; i++)
             {
-                scienceQuestions.AddLast(CreateQuestion("Science", i));
-                sportsQuestions.AddLast(CreateQuestion("Sports", i));
-                rockQuestions.AddLast(CreateQuestion("Rock", i));
-
                 pop.AddQuestion(CreateQuestion(pop.Name, i));
+                science.AddQuestion(CreateQuestion(science.Name, i));
+                sports.AddQuestion(CreateQuestion(sports.Name, i));
+                rock.AddQuestion(CreateQuestion(rock.Name, i));
             }
         }
 
         public String CategoryForPlace(Int32 place)
         {
-            if (sciencePlaces.Contains(place)) return "Science";
-            if (sportsPlaces.Contains(place)) return "Sports";
-            if (rockPlaces.Contains(place)) return "Rock";
-
             if (pop.IsPlacedOn(place)) return pop.Name;
+            if (science.IsPlacedOn(place)) return science.Name;
+            if (sports.IsPlacedOn(place)) return sports.Name;
+            if (rock.IsPlacedOn(place)) return rock.Name;
             throw new InvalidOperationException($"Place {place} is out of board.");
         }
 
         public String AskCategoryQuestion(String category)
         {
-            LinkedList<String> questions = null;
-
-            if (category == "Science") questions = scienceQuestions;
-            if (category == "Sports") questions = sportsQuestions;
-            if (category == "Rock") questions = rockQuestions;
-
             if (category == pop.Name) return pop.NextQuestion();
-
-            if (questions != null) return NextQuestion(questions);
+            if (category == science.Name) return science.NextQuestion();
+            if (category == sports.Name) return sports.NextQuestion();
+            if (category == rock.Name) return rock.NextQuestion();
 
             throw new InvalidOperationException($"Missing category {category}");
-        }
-
-        static String NextQuestion(LinkedList<String> questions)
-        {
-            var result = questions.First();
-            questions.RemoveFirst();
-            return result;
         }
     }
 }
