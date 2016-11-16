@@ -29,7 +29,7 @@ namespace Trivia
             Assert.Equal(expected, category);
         }
 
-        [Fact(Skip = "too early")]
+        [Fact]
         public void CategoryForPlace()
         {
             var deck = new QuestionDeck();
