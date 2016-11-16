@@ -29,6 +29,7 @@ namespace Trivia
 
         public String NextQuestion()
         {
+            if (questions.Count == 0) throw new InvalidOperationException("out of questions");
             var result = questions.First();
             questions.RemoveFirst();
             return result;
