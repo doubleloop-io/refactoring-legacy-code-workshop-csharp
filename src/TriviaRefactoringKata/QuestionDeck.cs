@@ -58,12 +58,26 @@ namespace Trivia
 
         public String AskCategoryQuestion(String category)
         {
-            var found = categories.SingleOrDefault(x => x.Name == category);
+            var found = FindCategoryQuestions(category);
             if (found == null) throw new InvalidOperationException($"Missing category {category}");
             return found.NextQuestion();
         }
 
+        CategoryQuestions FindCategoryQuestions(String category)
+        {
+            return categories.SingleOrDefault(x => x.Name == category);
+        }
+
         CategoryQuestions AddCategoryQuestions(String categoryName)
+        {
+            var categoryQuestions = FindCategoryQuestions(categoryName);
+            if (categoryQuestions != null)
+                return categoryQuestions;
+            else
+                return AddCategoryQuestions2(categoryName);
+        }
+
+        CategoryQuestions AddCategoryQuestions2(String categoryName)
         {
             var categoryQuestions = new CategoryQuestions(categoryName);
             categories.Add(categoryQuestions);

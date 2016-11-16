@@ -65,7 +65,7 @@ namespace Trivia
             Assert.Equal("Sports Question 1", deck.AskCategoryQuestion("Sports"));
         }
 
-        [Fact(Skip = "too early")]
+        [Fact]
         public void AskMultipleQuestionsForMixedCategories()
         {
             var deck = new QuestionDeck();
