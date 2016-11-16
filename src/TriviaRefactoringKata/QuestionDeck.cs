@@ -32,12 +32,10 @@ namespace Trivia
             var rock = AddCategoryQuestions("Rock");
             rock.PlacedOn(new[] { 3, 7, 11 });
 
-            for (var i = 0; i < 50; i++)
+            foreach (var category in categories)
             {
-                foreach (var category in categories)
-                {
+                for (var i = 0; i < 50; i++)
                     category.AddQuestion(CreateQuestion(category.Name, i));
-                }
             }
         }
 
