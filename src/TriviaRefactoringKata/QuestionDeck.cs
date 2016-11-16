@@ -51,9 +51,8 @@ namespace Trivia
 
         public void PlaceOn(String categoryName, Int32[] places)
         {
-            var categoryQuestions = new CategoryQuestions(categoryName);
+            var categoryQuestions = AddCategoryQuestions(categoryName);
             categoryQuestions.PlacedOn(places);
-            categories.Add(categoryQuestions);
         }
 
         public String CategoryForPlace(Int32 place)
@@ -65,9 +64,8 @@ namespace Trivia
 
         public void AddQuestion(String categoryName, String question)
         {
-            var categoryQuestions = new CategoryQuestions(categoryName);
+            var categoryQuestions = AddCategoryQuestions(categoryName);
             categoryQuestions.AddQuestion(question);
-            categories.Add(categoryQuestions);
         }
 
         public String AskCategoryQuestion(String category)
@@ -75,6 +73,13 @@ namespace Trivia
             var found = categories.SingleOrDefault(x => x.Name == category);
             if (found == null) throw new InvalidOperationException($"Missing category {category}");
             return found.NextQuestion();
+        }
+
+        CategoryQuestions AddCategoryQuestions(String categoryName)
+        {
+            var categoryQuestions = new CategoryQuestions(categoryName);
+            categories.Add(categoryQuestions);
+            return categoryQuestions;
         }
     }
 }
