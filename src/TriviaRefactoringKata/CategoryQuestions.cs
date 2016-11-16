@@ -6,25 +6,30 @@ namespace Trivia
 {
     public class CategoryQuestions
     {
-        readonly Int32[] places;
         readonly LinkedList<String> questions;
+        readonly List<Int32> places;
         public String Name { get; }
 
-        public CategoryQuestions(String name, Int32[] places)
+        public CategoryQuestions(String name)
         {
             questions = new LinkedList<String>();
-            this.places = places;
+            places = new List<Int32>();
             Name = name;
         }
 
-        public void AddQuestion(String question)
+        public void PlacedOn(Int32[] where)
         {
-            questions.AddLast(question);
+            places.AddRange(@where);
         }
 
         public Boolean IsPlacedOn(Int32 place)
         {
             return places.Contains(place);
+        }
+
+        public void AddQuestion(String question)
+        {
+            questions.AddLast(question);
         }
 
         public String NextQuestion()

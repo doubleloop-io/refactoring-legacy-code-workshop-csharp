@@ -8,14 +8,15 @@ namespace Trivia
         [Fact]
         public void ExposeName()
         {
-            var categoryQuestions = new CategoryQuestions("my name", new Int32[0]);
+            var categoryQuestions = new CategoryQuestions("my name");
             Assert.Equal("my name", categoryQuestions.Name);
         }
 
         [Fact]
         public void PlacedOnAskedPosition()
         {
-            var categoryQuestions = new CategoryQuestions("anything", new[] {5, 9});
+            var categoryQuestions = new CategoryQuestions("anything");
+            categoryQuestions.PlacedOn(new[] { 5, 9 });
             Assert.True(categoryQuestions.IsPlacedOn(5));
             Assert.True(categoryQuestions.IsPlacedOn(9));
         }
@@ -23,14 +24,15 @@ namespace Trivia
         [Fact]
         public void NotPlacedOnAskedPosition()
         {
-            var categoryQuestions = new CategoryQuestions("anything", new[] {5, 9});
+            var categoryQuestions = new CategoryQuestions("anything");
+            categoryQuestions.PlacedOn(new[] { 5, 9 });
             Assert.False(categoryQuestions.IsPlacedOn(6));
         }
 
         [Fact]
         public void AskManyQuestions()
         {
-            var categoryQuestions = new CategoryQuestions("anything", new Int32[0]);
+            var categoryQuestions = new CategoryQuestions("anything");
             categoryQuestions.AddQuestion("first");
             categoryQuestions.AddQuestion("second");
             Assert.Equal("first", categoryQuestions.NextQuestion());
@@ -40,7 +42,7 @@ namespace Trivia
         [Fact]
         public void AskTooManyQuestions()
         {
-            var categoryQuestions = new CategoryQuestions("anything", new Int32[0]);
+            var categoryQuestions = new CategoryQuestions("anything");
             categoryQuestions.AddQuestion("first");
             categoryQuestions.NextQuestion();
 

@@ -28,7 +28,8 @@ namespace Trivia
             rockQuestions = new LinkedList<string>();
             rockPlaces = new[] { 3, 7, 11 };
 
-            pop = new CategoryQuestions("Pop", new[] { 0, 4, 8 });
+            pop = new CategoryQuestions("Pop");
+            pop.PlacedOn(new[] { 0, 4, 8 });
         }
 
         static String CreateQuestion(String categoryName, Int32 index)
