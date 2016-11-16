@@ -28,8 +28,13 @@ namespace UglyTrivia
 
         public void FillCategoryWithSimpleQuestionAndPlace(String categoryName, Int32[] categoryPlaces)
         {
-            questionDeck.PlaceOn(categoryName, categoryPlaces);
+            PlaceCategory(categoryName, categoryPlaces);
             FillWithSimpleQuestions(categoryName);
+        }
+
+        void PlaceCategory(String categoryName, Int32[] categoryPlaces)
+        {
+            questionDeck.PlaceOn(categoryName, categoryPlaces);
         }
 
         void FillWithSimpleQuestions(String categoryName)
