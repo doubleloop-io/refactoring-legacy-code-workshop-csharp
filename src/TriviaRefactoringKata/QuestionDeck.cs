@@ -18,11 +18,10 @@ namespace Trivia
             return categoryName + " Question " + index;
         }
 
-        public void FillQuestions()
+        public  void FillQuestions()
         {
-            var pop = FindOrAddCategoryQuestions("Pop");
-            pop.PlacedOn(new[] { 0, 4, 8 });
-            for (var i = 0; i < 50; i++) pop.AddQuestion(CreateQuestion(pop.Name, i));
+            PlaceOn("Pop", new[] { 0, 4, 8 });
+            for (var i = 0; i < 50; i++) AddQuestion("Pop", CreateQuestion("Pop", i));
 
             var science = FindOrAddCategoryQuestions("Science");
             science.PlacedOn(new[] { 1, 5, 9 });
