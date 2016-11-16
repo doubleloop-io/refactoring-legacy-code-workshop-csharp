@@ -23,6 +23,7 @@ namespace Trivia
         {
             var deck = new QuestionDeck();
 
+            deck.FillQuestions();
             var category = deck.CategoryForPlace(place);
 
             Assert.Equal(expected, category);
@@ -48,6 +49,7 @@ namespace Trivia
         {
             var deck = new QuestionDeck();
 
+            deck.FillQuestions();
             var ex = Record.Exception(() => deck.CategoryForPlace(place));
 
             Assert.IsType<InvalidOperationException>(ex);
