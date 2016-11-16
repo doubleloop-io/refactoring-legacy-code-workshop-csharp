@@ -36,11 +36,6 @@ namespace UglyTrivia
             questionDeck.AddQuestion(categoryName, question);
         }
 
-        public static String CreateSimpleQuestion(String categoryName, Int32 index)
-        {
-            return categoryName + " Question " + index;
-        }
-
         public bool isPlayable()
         {
             return (howManyPlayers() >= 2);

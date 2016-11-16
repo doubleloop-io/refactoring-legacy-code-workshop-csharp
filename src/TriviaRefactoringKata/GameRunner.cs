@@ -57,9 +57,14 @@ namespace Trivia
         {
             for (var i = 0; i < 50; i++)
             {
-                var question = Game.CreateSimpleQuestion(categoryName, i);
+                var question = CreateSimpleQuestion(categoryName, i);
                 aGame.AddQuestion(categoryName, question);
             }
+        }
+
+        static String CreateSimpleQuestion(String categoryName, Int32 index)
+        {
+            return categoryName + " Question " + index;
         }
     }
 
