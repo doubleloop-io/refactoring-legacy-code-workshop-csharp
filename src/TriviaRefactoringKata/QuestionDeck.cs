@@ -21,6 +21,7 @@ namespace Trivia
         public void FillQuestions()
         {
             var pop = new CategoryQuestions("Pop");
+            categories.Add(pop);
             pop.PlacedOn(new[] { 0, 4, 8 });
 
             var science = new CategoryQuestions("Science");
@@ -34,7 +35,6 @@ namespace Trivia
 
             categories.AddRange(new[]
             {
-                pop,
                 science,
                 sports,
                 rock
