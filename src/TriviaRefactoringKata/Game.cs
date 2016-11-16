@@ -34,10 +34,18 @@ namespace UglyTrivia
         public void FillWithSimpleQuestions(String categoryName)
         {
             for (var i = 0; i < 50; i++)
-                questionDeck.AddQuestion(categoryName, CreateSimpleQuestion(categoryName, i));
+            {
+                var simpleQuestion = CreateSimpleQuestion(categoryName, i);
+                AddQuestion(categoryName, simpleQuestion);
+            }
         }
 
-        static String CreateSimpleQuestion(String categoryName, Int32 index)
+        void AddQuestion(String categoryName, String question)
+        {
+            questionDeck.AddQuestion(categoryName, question);
+        }
+
+        public static String CreateSimpleQuestion(String categoryName, Int32 index)
         {
             return categoryName + " Question " + index;
         }
