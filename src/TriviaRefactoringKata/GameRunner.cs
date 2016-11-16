@@ -22,16 +22,16 @@ namespace Trivia
             Game aGame = new Game();
 
             aGame.PlaceCategory("Pop", new[] { 0, 4, 8 });
-            aGame.FillWithSimpleQuestions("Pop");
+            FillWithSimpleQuestions(aGame, "Pop");
 
             aGame.PlaceCategory("Science", new[] { 1, 5, 9 });
-            aGame.FillWithSimpleQuestions("Science");
+            FillWithSimpleQuestions(aGame, "Science");
 
             aGame.PlaceCategory("Sports", new[] { 2, 6, 10 });
-            aGame.FillWithSimpleQuestions("Sports");
+            FillWithSimpleQuestions(aGame, "Sports");
 
             aGame.PlaceCategory("Rock", new[] { 3, 7, 11 });
-            aGame.FillWithSimpleQuestions("Rock");
+            FillWithSimpleQuestions(aGame, "Rock");
 
             aGame.add("Chet");
             aGame.add("Pat");
@@ -51,6 +51,11 @@ namespace Trivia
                     notAWinner = aGame.wasCorrectlyAnswered();
                 }
             } while (notAWinner);
+        }
+
+        static void FillWithSimpleQuestions(Game aGame, String categoryName)
+        {
+            aGame.FillWithSimpleQuestions(categoryName);
         }
     }
 
