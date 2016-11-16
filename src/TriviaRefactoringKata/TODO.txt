@@ -1,9 +1,4 @@
-﻿# FOUND SMELLS
-Data Clumps for all fields
-Shotgun Surgery for categories
-Switch Statement in askQuestion and currentCategory
-
-# MISC
+﻿# MISC
 inline currentCategory, it's only a bottleneck
 inline askQuestion, it's only a bottleneck
 Add AskQuestionForPlace method into QuestionDeck that internally call CurrentCategoryPlace and AskCategoryQuestion
