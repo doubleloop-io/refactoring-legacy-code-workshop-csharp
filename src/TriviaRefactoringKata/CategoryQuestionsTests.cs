@@ -6,9 +6,16 @@ namespace Trivia
     public class CategoryQuestionsTests
     {
         [Fact]
+        public void ExposeName()
+        {
+            var categoryQuestions = new CategoryQuestions("my name", new Int32[0]);
+            Assert.Equal("my name", categoryQuestions.Name);
+        }
+
+        [Fact]
         public void PlacedOnAskedPosition()
         {
-            var categoryQuestions = new CategoryQuestions("not useful", new[] {5, 9});
+            var categoryQuestions = new CategoryQuestions("anything", new[] {5, 9});
             Assert.True(categoryQuestions.IsPlacedOn(5));
             Assert.True(categoryQuestions.IsPlacedOn(9));
         }
@@ -16,7 +23,7 @@ namespace Trivia
         [Fact]
         public void NotPlacedOnAskedPosition()
         {
-            var categoryQuestions = new CategoryQuestions("not useful", new[] {5, 9});
+            var categoryQuestions = new CategoryQuestions("anything", new[] {5, 9});
             Assert.False(categoryQuestions.IsPlacedOn(6));
         }
 
