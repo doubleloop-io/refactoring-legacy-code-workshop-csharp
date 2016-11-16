@@ -53,17 +53,6 @@ namespace Trivia
         }
 
         [Fact]
-        public void AskMultipleQuestionForSameCategory()
-        {
-            var deck = new QuestionDeck();
-
-            deck.FillQuestions();
-            Assert.Equal("Pop Question 0", deck.AskCategoryQuestion("Pop"));
-            Assert.Equal("Pop Question 1", deck.AskCategoryQuestion("Pop"));
-            Assert.Equal("Pop Question 2", deck.AskCategoryQuestion("Pop"));
-        }
-
-        [Fact]
         public void AskMultipleQuestionsForMixedCategories()
         {
             var deck = new QuestionDeck();
