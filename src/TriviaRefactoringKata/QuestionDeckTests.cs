@@ -41,18 +41,6 @@ namespace Trivia
         }
 
         [Fact]
-        public void QuestionForUnknownCategory_()
-        {
-            var deck = new QuestionDeck();
-
-            deck.FillQuestions();
-            var ex = Record.Exception(() => deck.AskCategoryQuestion("unknown"));
-
-            Assert.IsType<InvalidOperationException>(ex);
-            Assert.Contains("missing category unknown", ex.Message, StringComparison.InvariantCultureIgnoreCase);
-        }
-
-        [Fact]
         public void QuestionForUnknownCategory()
         {
             var deck = new QuestionDeck();
