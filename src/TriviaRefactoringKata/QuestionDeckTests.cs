@@ -34,7 +34,7 @@ namespace Trivia
         [InlineData("Science")]
         [InlineData("Sports")]
         [InlineData("Rock")]
-        public void FirstQuestionForOneCategory(String category)
+        public void FirstQuestionForOneCategory_(String category)
         {
             var deck = new QuestionDeck();
 
@@ -42,6 +42,17 @@ namespace Trivia
             var question = deck.AskCategoryQuestion(category);
 
             Assert.Equal(category + " Question 0", question);
+        }
+
+        [Fact]
+        public void FirstQuestionForOneCategory()
+        {
+            var deck = new QuestionDeck();
+
+            deck.AddQuestion("my name", "first question");
+            var question = deck.AskCategoryQuestion("my name");
+
+            Assert.Equal("first question", question);
         }
 
         [Fact]

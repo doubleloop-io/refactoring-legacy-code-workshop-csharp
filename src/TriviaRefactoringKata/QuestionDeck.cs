@@ -63,6 +63,13 @@ namespace Trivia
             return found.Name;
         }
 
+        public void AddQuestion(String categoryName, String question)
+        {
+            var categoryQuestions = new CategoryQuestions(categoryName);
+            categoryQuestions.AddQuestion(question);
+            categories.Add(categoryQuestions);
+        }
+
         public String AskCategoryQuestion(String category)
         {
             var found = categories.SingleOrDefault(x => x.Name == category);
