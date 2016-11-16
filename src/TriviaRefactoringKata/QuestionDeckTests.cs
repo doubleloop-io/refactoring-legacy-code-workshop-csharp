@@ -17,22 +17,6 @@ namespace Trivia
             Assert.Equal("my name", category);
         }
 
-        [Theory]
-        [InlineData(12)]
-        [InlineData(1234)]
-        [InlineData(Int32.MaxValue)]
-        [InlineData(-1)]
-        public void CategoryForOutOfBoardPlace_(Int32 place)
-        {
-            var deck = new QuestionDeck();
-
-            deck.FillQuestions();
-            var ex = Record.Exception(() => deck.CategoryForPlace(place));
-
-            Assert.IsType<InvalidOperationException>(ex);
-            Assert.Contains("out of board", ex.Message);
-        }
-
         [Fact]
         public void CategoryForOutOfBoardPlace()
         {
