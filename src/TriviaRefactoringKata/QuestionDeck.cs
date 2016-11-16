@@ -20,26 +20,26 @@ namespace Trivia
 
         public void FillQuestions()
         {
-            var pop = AddCategoryQuestions("Pop");
+            var pop = FindOrAddCategoryQuestions("Pop");
             pop.PlacedOn(new[] { 0, 4, 8 });
             for (var i = 0; i < 50; i++) pop.AddQuestion(CreateQuestion(pop.Name, i));
 
-            var science = AddCategoryQuestions("Science");
+            var science = FindOrAddCategoryQuestions("Science");
             science.PlacedOn(new[] { 1, 5, 9 });
             for (var i = 0; i < 50; i++) science.AddQuestion(CreateQuestion(science.Name, i));
 
-            var sports = AddCategoryQuestions("Sports");
+            var sports = FindOrAddCategoryQuestions("Sports");
             sports.PlacedOn(new[] { 2, 6, 10 });
             for (var i = 0; i < 50; i++) sports.AddQuestion(CreateQuestion(sports.Name, i));
 
-            var rock = AddCategoryQuestions("Rock");
+            var rock = FindOrAddCategoryQuestions("Rock");
             rock.PlacedOn(new[] { 3, 7, 11 });
             for (var i = 0; i < 50; i++) rock.AddQuestion(CreateQuestion(rock.Name, i));
         }
 
         public void PlaceOn(String categoryName, Int32[] places)
         {
-            var categoryQuestions = AddCategoryQuestions(categoryName);
+            var categoryQuestions = FindOrAddCategoryQuestions(categoryName);
             categoryQuestions.PlacedOn(places);
         }
 
@@ -52,7 +52,7 @@ namespace Trivia
 
         public void AddQuestion(String categoryName, String question)
         {
-            var categoryQuestions = AddCategoryQuestions(categoryName);
+            var categoryQuestions = FindOrAddCategoryQuestions(categoryName);
             categoryQuestions.AddQuestion(question);
         }
 
@@ -68,16 +68,13 @@ namespace Trivia
             return categories.SingleOrDefault(x => x.Name == category);
         }
 
-        CategoryQuestions AddCategoryQuestions(String categoryName)
+        CategoryQuestions FindOrAddCategoryQuestions(String categoryName)
         {
             var categoryQuestions = FindCategoryQuestions(categoryName);
-            if (categoryQuestions != null)
-                return categoryQuestions;
-            else
-                return AddCategoryQuestions2(categoryName);
+            return categoryQuestions ?? AddCategoryQuestions(categoryName);
         }
 
-        CategoryQuestions AddCategoryQuestions2(String categoryName)
+        CategoryQuestions AddCategoryQuestions(String categoryName)
         {
             var categoryQuestions = new CategoryQuestions(categoryName);
             categories.Add(categoryQuestions);
