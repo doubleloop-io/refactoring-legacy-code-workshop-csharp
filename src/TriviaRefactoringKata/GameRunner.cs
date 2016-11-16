@@ -21,10 +21,17 @@ namespace Trivia
         {
             Game aGame = new Game();
 
-            aGame.FillCategoryWithSimpleQuestionAndPlace("Pop", new[] { 0, 4, 8 });
-            aGame.FillCategoryWithSimpleQuestionAndPlace("Science", new[] { 1, 5, 9 });
-            aGame.FillCategoryWithSimpleQuestionAndPlace("Sports", new[] { 2, 6, 10 });
-            aGame.FillCategoryWithSimpleQuestionAndPlace("Rock", new[] { 3, 7, 11 });
+            aGame.PlaceCategory("Pop", new[] { 0, 4, 8 });
+            aGame.FillWithSimpleQuestions("Pop");
+
+            aGame.PlaceCategory("Science", new[] { 1, 5, 9 });
+            aGame.FillWithSimpleQuestions("Science");
+
+            aGame.PlaceCategory("Sports", new[] { 2, 6, 10 });
+            aGame.FillWithSimpleQuestions("Sports");
+
+            aGame.PlaceCategory("Rock", new[] { 3, 7, 11 });
+            aGame.FillWithSimpleQuestions("Rock");
 
             aGame.add("Chet");
             aGame.add("Pat");
