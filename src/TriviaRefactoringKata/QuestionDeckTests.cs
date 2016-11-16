@@ -7,7 +7,7 @@ namespace Trivia
     public class QuestionDeckTests
     {
         [Fact]
-        public void CategoryForPlace()
+        public void PlaceWithCategory()
         {
             var deck = new QuestionDeck();
 
@@ -18,7 +18,7 @@ namespace Trivia
         }
 
         [Fact]
-        public void CategoryForOutOfBoardPlace()
+        public void PlaceWithoutCategory()
         {
             var deck = new QuestionDeck();
 
@@ -26,7 +26,7 @@ namespace Trivia
             var ex = Record.Exception(() => deck.CategoryForPlace(10));
 
             Assert.IsType<InvalidOperationException>(ex);
-            Assert.Contains("out of board", ex.Message);
+            Assert.Contains("no category on place 10", ex.Message, StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Theory]

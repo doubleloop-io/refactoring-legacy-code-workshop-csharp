@@ -59,7 +59,7 @@ namespace Trivia
         public String CategoryForPlace(Int32 place)
         {
             var found = categories.SingleOrDefault(x => x.IsPlacedOn(place));
-            if (found == null) throw new InvalidOperationException($"Place {place} is out of board.");
+            if (found == null) throw new InvalidOperationException($"No category on place {place}.");
             return found.Name;
         }
 
