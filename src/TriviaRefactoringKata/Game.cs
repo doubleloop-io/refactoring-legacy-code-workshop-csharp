@@ -44,7 +44,8 @@ namespace UglyTrivia
 
         void FillWithSimpleQuestions(String categoryName)
         {
-            questionDeck.AddSimpleQuestions(categoryName);
+            for (var i = 0; i < 50; i++)
+                questionDeck.AddQuestion(categoryName, QuestionDeck.CreateSimpleQuestion(categoryName, i));
         }
 
         public bool isPlayable()
