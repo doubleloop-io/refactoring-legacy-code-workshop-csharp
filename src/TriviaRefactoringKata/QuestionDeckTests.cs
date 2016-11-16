@@ -53,7 +53,7 @@ namespace Trivia
         }
 
         [Fact]
-        public void AskMultipleQuestionsForMixedCategories()
+        public void AskMultipleQuestionsForMixedCategories_()
         {
             var deck = new QuestionDeck();
 
@@ -63,6 +63,21 @@ namespace Trivia
             Assert.Equal("Pop Question 1", deck.AskCategoryQuestion("Pop"));
             Assert.Equal("Rock Question 0", deck.AskCategoryQuestion("Rock"));
             Assert.Equal("Sports Question 1", deck.AskCategoryQuestion("Sports"));
+        }
+
+        [Fact(Skip = "too early")]
+        public void AskMultipleQuestionsForMixedCategories()
+        {
+            var deck = new QuestionDeck();
+
+            deck.AddQuestion("category1", "q1");
+            deck.AddQuestion("category1", "q2");
+            deck.AddQuestion("category2", "q3");
+            deck.AddQuestion("category2", "q4");
+            Assert.Equal("q1", deck.AskCategoryQuestion("category1"));
+            Assert.Equal("q3", deck.AskCategoryQuestion("category2"));
+            Assert.Equal("q4", deck.AskCategoryQuestion("category2"));
+            Assert.Equal("q2", deck.AskCategoryQuestion("category1"));
         }
     }
 }
