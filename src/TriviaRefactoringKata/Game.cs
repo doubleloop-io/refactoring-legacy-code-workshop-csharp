@@ -30,10 +30,15 @@ namespace UglyTrivia
 
         void FillGameWithSimpleQuestionForEachCategories()
         {
-            questionDeck.PlaceSimpleQuestions("Pop", new[] { 0, 4, 8 });
-            questionDeck.PlaceSimpleQuestions("Science", new[] { 1, 5, 9 });
-            questionDeck.PlaceSimpleQuestions("Sports", new[] { 2, 6, 10 });
-            questionDeck.PlaceSimpleQuestions("Rock", new[] { 3, 7, 11 });
+            FillCategoryWithSimpleQuestionAndPlace("Pop", new[] { 0, 4, 8 });
+            FillCategoryWithSimpleQuestionAndPlace("Science", new[] { 1, 5, 9 });
+            FillCategoryWithSimpleQuestionAndPlace("Sports", new[] { 2, 6, 10 });
+            FillCategoryWithSimpleQuestionAndPlace("Rock", new[] { 3, 7, 11 });
+        }
+
+        void FillCategoryWithSimpleQuestionAndPlace(String categoryName, Int32[] categoryPlaces)
+        {
+            questionDeck.PlaceSimpleQuestions(categoryName, categoryPlaces);
         }
 
         public bool isPlayable()
