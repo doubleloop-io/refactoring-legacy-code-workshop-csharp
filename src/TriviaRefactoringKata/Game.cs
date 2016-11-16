@@ -25,6 +25,11 @@ namespace UglyTrivia
         {
             questionDeck = new QuestionDeck();
 
+            FillGameWithSimpleQuestionForEachCategories();
+        }
+
+        void FillGameWithSimpleQuestionForEachCategories()
+        {
             questionDeck.FillQuestions();
         }
 
