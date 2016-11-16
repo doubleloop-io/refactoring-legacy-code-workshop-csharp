@@ -26,15 +26,7 @@ namespace UglyTrivia
             questionDeck = new QuestionDeck();
         }
 
-        public void FillGameWithSimpleQuestionForEachCategories()
-        {
-            FillCategoryWithSimpleQuestionAndPlace("Pop", new[] { 0, 4, 8 });
-            FillCategoryWithSimpleQuestionAndPlace("Science", new[] { 1, 5, 9 });
-            FillCategoryWithSimpleQuestionAndPlace("Sports", new[] { 2, 6, 10 });
-            FillCategoryWithSimpleQuestionAndPlace("Rock", new[] { 3, 7, 11 });
-        }
-
-        void FillCategoryWithSimpleQuestionAndPlace(String categoryName, Int32[] categoryPlaces)
+        public void FillCategoryWithSimpleQuestionAndPlace(String categoryName, Int32[] categoryPlaces)
         {
             questionDeck.PlaceOn(categoryName, categoryPlaces);
             FillWithSimpleQuestions(categoryName);
