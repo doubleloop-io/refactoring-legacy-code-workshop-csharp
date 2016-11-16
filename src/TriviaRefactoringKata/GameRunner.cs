@@ -55,7 +55,11 @@ namespace Trivia
 
         static void FillWithSimpleQuestions(Game aGame, String categoryName)
         {
-            aGame.FillWithSimpleQuestions(categoryName);
+            for (var i = 0; i < 50; i++)
+            {
+                var question = Game.CreateSimpleQuestion(categoryName, i);
+                aGame.AddQuestion(categoryName, question);
+            }
         }
     }
 

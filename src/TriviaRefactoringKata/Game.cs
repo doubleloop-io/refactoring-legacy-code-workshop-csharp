@@ -31,16 +31,7 @@ namespace UglyTrivia
             questionDeck.PlaceOn(categoryName, categoryPlaces);
         }
 
-        public void FillWithSimpleQuestions(String categoryName)
-        {
-            for (var i = 0; i < 50; i++)
-            {
-                var simpleQuestion = CreateSimpleQuestion(categoryName, i);
-                AddQuestion(categoryName, simpleQuestion);
-            }
-        }
-
-        void AddQuestion(String categoryName, String question)
+        public void AddQuestion(String categoryName, String question)
         {
             questionDeck.AddQuestion(categoryName, question);
         }
