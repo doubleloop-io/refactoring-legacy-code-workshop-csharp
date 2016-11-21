@@ -7,9 +7,9 @@
 ## Inherit codebase
 ## The Trivia Game
 ## New Requirement
-## Setup Tests
 ## Testing strategy
 ## Begin End-to-end tests
+## Setup Tests
 ## Can we Grab the output?
 ## Is output deterministic?
 ## Isolate Randomness
