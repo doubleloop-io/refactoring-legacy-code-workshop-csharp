@@ -42,10 +42,9 @@ Now easy and clean way, we can call simple way.
 Verify with the 7 implementation.
 
 ## Refactoring and Testing relation
-After a deep refactoring.
-How can we know that we didn't change anything?
+How can we know that we didn't change anything with a deep refactoring?
 We need to cover the application code with automatic tests
-With legacy application it's particular kind of tests.
+With legacy application they are of a particular kind.
 We want write application tests also knows as Characterization Tests.
 
 TODO: da rivedere il modo di distribuzione della codebase, 
@@ -54,9 +53,7 @@ non posso darla come zip se voglio fornire le branches come recovery points
 Get Trivia
 	https://drive.google.com/drive/folders/0B72Hr4IhXoCkNWlqQVVQNmN0ZkE
 Open, build and run solution.
-Execute git init
-Execute git add . -A
-Execute git commit -m "Inherited mess :-)"
+Explain the branches to be used as "plan B" to recover the code.
 
 ## The Trivia Game
 Trivia is a trivial pursuite game simulation.
@@ -69,18 +66,13 @@ And like production codebases there aren't tests.
 The business ask we to handle a brand new category: History.
 At this point we have only one friend...Find all.
 Try Find all "category"...many magic strings.
-Try Find all "pop"...many fields.
-ALT+F7 on popQuestions.
+Try Find all "pop"...many fields, ALT+F7 on popQuestions.
 If we look closer to other questions categories we see that there are many duplicated lines of code.
+Show two cost/change graphs (labelled) for legacy implementation.
 The familiar way to implement the new requirement is to go over Game class and change it in many places.
-In other words we add more duplications and more debit.
+In other words we add more duplications and more debit. Evidence in the graph.
 But we can do better we can refactor the codebase!! :-)
-
-## Setup Tests
-Refactor whitout tests? Bad idea!
-Install-Package NUnit/xUnit
-Write a "TryTestRunner" test and get Red Bar
-Fix "TryTestRunner" test and get Green Bar
+Evidence in the graph and talk about "the fork".
 
 ## Testing strategy
 We want write Characterization Tests that freeze current behaviour.
@@ -100,15 +92,19 @@ The idea is very simple:
   - grap current output and compare with stored one.
   - if the output was changed the behaviour was changed too.
 The stored output is commonly knows as Golden Master.
-This isn't the only way to write this Characterization tests.
 It isn't 100% regression bug free, but can rich a good level with low effort.
 The quality of this kind of tests depends by the quality of input data.
+
+## Setup Tests
+Refactor whitout tests? Bad idea!
+Install-Package NUnit/xUnit
+Write a "TryTestRunner" test and get Red Bar
+Fix "TryTestRunner" test and get Green Bar
 
 ## Can we Grab the output?
 Explore application as black-box.
 Add a SpikeTests class in same project.
-Write a test that execute GameRunner.Main(null).
-Exception? No? Great!
+Write a test that execute GameRunner.Main(null). Exception? No? Great!
 Where output came from? Logger? Trace? Console? Looking for it.
 Find All "console.write" in order to verify if app directly write to Console.
 I need to grab output. How I can? Possible solutions:
@@ -121,7 +117,7 @@ Change test Console.SetOut(new StringWriter()) and Assert.Equal("", output);
 Redirect output from memory to file.
 Run tests many times, each one to different files.
 Are the results equals? Compare with diff tool.
-They are different, outout isn.t deterministic.
+They are different, outout isn't deterministic.
 Why? Possible causes? Input? DateTime? Db? Looking for it.
 Find All "random".
 
@@ -140,7 +136,7 @@ Remove fixed seed in production code.
 ## Finally produce Golden Master
 Run test with Code Coverage and seed equal to zero.
 Run test with Code Coverage and seed equal to two.
-Run same test linear function to generate spread seed.
+Use linear function to generate spreaded seed.
 Run test with Code Coverage Tool.
 Manually copy output.txt into ..\..\golden-master.txt.
 Always do with manual intervention.
@@ -184,9 +180,9 @@ Divergent Change: occurs when one class is commonly changed in different ways fo
 Shotgun Surgery: every time you make the same kind of change, you have to make a lot of little changes to a lot of different classes.
 Refused Bequest: inherit too much useless fields and methods due to wrong class hierarchy.
 Contegorized as:
-STRUCTURAL: Long Method, Large Class, Long Parameter List
-MISSING OO: Primitive Obsession, Switch Statements, Duplicate Code, Conditional Complexity
-RESPONSIBILITY DISTRIBUTION: Data Clumps, Refused Bequest, Divergent Change, Shotgun Surgery, Feature Envy
+  - STRUCTURAL: Long Method, Long Parameter List, Large Class.
+  - MISSING OO: Duplicate Code, Switch Statements, Conditional Complexity, Primitive Obsession.
+  - RESPONSIBILITY DISTRIBUTION: Data Clumps, Feature Envy, Divergent Change, Shotgun Surgery, Refused Bequest.
 
 ## Looking for smells
 Large Class: Game class
@@ -203,8 +199,8 @@ Conditional Complexity: roll(int roll), wasCorrectlyAnswered().
 ## Smells that impact the new requirement
 We need to handle History category.
 We have many smells related to questions logic.
-The primary is Shotgun Surgery, then Data Clumps and unmissables Primitive Obsession and Duplication.
-But directly work inside Game class is complex and even worst risky.
+The primary is Shotgun Surgery, then Data Clumps and unmissables Primitive Obsession, Switch and Duplication.
+But Game is a Long Class and directly work inside it is complex and even worst risky.
 We can do better, we can isolate affected parts moving them into another place.
 Then we can works in the new place with little surface and complexity.
 At beginning we want favour refactoring that reduce the scope in order to hide complexity.
